@@ -1,0 +1,73 @@
+/**
+
+// Normalize
+*= require "_vendor/normalize.css"
+
+**/
+
+$text-color: #333;
+
+@import "bourbon/bourbon";
+
+@import "grid-settings";
+@import "neat/neat";
+
+@import "fonts/fonts";
+
+@import "social";
+
+@import "layout";
+
+html{
+  font-family: "Georgia";
+}
+
+h1,h2,h3,h4,h5,h6{
+}
+
+footer{
+  font-size: .8em;
+  text-align: center;
+}
+
+body{
+  color: $text-color;
+  background-color: #333;
+  background-image: url(https://raw.github.com/subtlepatterns/SubtlePatterns/gh-pages/black-Linen.png);
+  .main{
+    box-shadow: #111 0px 0px 4px;
+    background-color: #eee;
+    background-image: url(https://raw.github.com/subtlepatterns/SubtlePatterns/gh-pages/pw_pattern.png);
+  }
+  #logo{
+    background-color: $text-color;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 4em;
+    }
+  }
+  #content{
+    @include pad();
+  }
+}
+
+
+#nav, #social{
+  font-size: 1.7em;
+  padding:.5em;
+  a{
+    text-decoration: none;
+  }
+}
+
+@include media($mobile){
+  h1#logo{
+    margin-top: 3em;
+  }
+}
+
+#show-social, #show-nav{
+  &:before{
+    color: $text-color;
+  }
+}

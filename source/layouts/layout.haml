@@ -1,0 +1,59 @@
+!!!5
+/[if lt IE 7] <html class="no-js lt-ie9 lt-ie8 lt-ie7">
+/[if IE 7] <html class="no-js lt-ie9 lt-ie8">
+/[if IE 8] <html class="no-js lt-ie9">
+%html.no-js
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}
+
+    -# To set titles and descriptions globally and for each individual page, see /DOCS.md
+    %title= page_title
+    %meta{:content => page_description, :name => "description"}
+    %meta{:content => "width=device-width", :name => "viewport"}
+
+    -#Favicon Options:
+    -#Update favicon_base.png in /source and middleman-favicon-maker will generate all the versions you need on 'middleman build'
+    -#OR, place favicon.ico and apple-touch-icon.png in /source and deactivate :favicon_maker in config.rb
+
+    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"
+    = javascript_include_tag "vendor/modernizr-2.6.1.min"
+    = stylesheet_link_tag "http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css"
+    = stylesheet_link_tag "site"
+    = javascript_include_tag "site"
+  %body
+    /[if lt IE 7] <p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p>
+
+    %section#main.main{:role => "main"}
+      %header
+        %a#show-nav{:href => "#nav"} Nav
+        %a#show-social{:href => "#social"} Social
+        %h1#logo
+          %a{:href => "index.html"} Hello!
+      = yield
+      %footer
+        This template was handmade with <i class="icon-heart-empty"></i> by 
+        %a{:href => "http://twitter.com/justinthrelkeld"} Justin
+    %nav#nav
+      %ul 
+        %li 
+          = link_to "Page2", "/page2.html"
+    #social
+      %ul.social
+        %li.facebook
+          %a{:href => "#", :target => "_blank"} Facebook
+        %li.vimeo
+          %a{:href => "#", :target => "_blank"} Vimeo
+        %li.instagram
+          %a{:href => "#", :target => "_blank"} Instagram
+        %li.twitter
+          %a{:href => "#", :target => "_blank"} Twitter
+    = javascript_include_tag "app"
+    :javascript
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-XXXXXXXX-X');
+      ga('send', 'pageview');

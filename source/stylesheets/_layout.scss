@@ -1,0 +1,221 @@
+$side-panel-width: 65%;
+$slide-speed: .8s;
+
+
+// layout
+*{box-sizing: border-box;}
+html{
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+body{
+  @include outer-container;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  #nav, #social{
+    @include media($mobile){
+      @include span-columns($grid-columns/2);
+    }
+    position: absolute;
+    top:0;
+    color: $text-color;
+    a{
+      color: $text-color;
+    }
+  }
+
+  #nav{
+    left:0;
+    ul{
+      li{
+        clear: none;
+        float: left;
+        padding: .5em;
+      }
+    }
+  }
+
+  #social{
+    right: 0;
+    li{
+      background-color: $text-color;
+      border-radius: 100%;
+      margin-right: .5em;
+    }
+  }
+
+  #main{
+    @include span-columns($grid-columns);
+    @include pad(0);
+    @include omega();
+    margin: 0;
+    @include transition (margin-left $slide-speed);
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  #content{
+    @include pad();
+    max-width: 80%;
+    margin: 0 auto;
+    margin-top: 5em;
+  }
+}
+
+// universal styling
+
+body{
+  ul.social{
+    float: right;
+    li{
+      width: 45px;
+      height: 45px;
+      float: left;
+    }
+  }
+}
+
+@include media($mobile){
+  #nav, #social{
+    overflow: scroll;
+    height: 100%;
+    -webkit-overflow-scrolling:touch;
+    ul{
+    margin-top: 2em;
+      li{
+        height: 45px;
+        margin: 0; padding: 0;
+        margin-bottom: .5em;
+        background-color: inherit;
+        a{
+          color: white;
+          line-height: 2em;
+          text-decoration: none;
+          background-position: bottom;
+        }
+      }
+    }
+  }
+
+  ul.social{
+    width: 100%;
+    float: left;
+    li{
+      clear: both;
+      width: 100%;
+      float: left;
+      overflow: visible;
+      a{
+        width: 100%;
+        text-indent: 50px;
+        overflow: visible;
+      }
+    }
+  }
+}
+
+// OnCanvas
+
+#show-nav,
+#show-social{
+  position: absolute;
+  z-index: 30;
+  top: 0;
+  display: none;
+}
+
+#show-nav{
+  left: 0;
+}
+#show-social{
+  right: 0;
+}
+
+@include media($mobile){
+  #show-nav,
+  #show-social{
+    display: block;
+    visibility: hidden;
+    text-decoration: none;
+    &:before{
+      font-size: 2em;
+      font-family: "FontAwesome";
+      display: block;
+      text-indent: 0;
+      visibility: visible;
+      text-align: right;
+      padding: .5em;
+    }
+  }
+  #show-social{
+    &:before{
+      content: "\f053";
+    }
+  }
+
+  #show-nav{
+    &:before{
+      content: "\f0ca";
+    }
+  }
+
+  #nav{
+    ul{
+      li{
+        clear: both !important;
+        float: none !important;
+        a{}
+      }
+    }
+  }
+
+  #nav, #social{
+    z-index: 10;
+    width: $side-panel-width !important;
+    height: 100%;
+    display: block;
+    background-image: inherit;
+  }
+
+body.show-nav, body.show-social{
+  #main{
+    overflow: hidden;
+  }
+}
+
+  body.show-nav{
+    #main{
+      margin-left: $side-panel-width;
+    }
+    #social{
+      z-index: -10;
+    }
+    #show-nav:before{
+      content: "\f0ca";
+    }
+  }
+
+  body.show-social{
+    #main{
+      margin-left: -$side-panel-width;
+    }
+    #nav{
+      z-index: -10;
+    }
+    #show-social:before{
+      content: "\f054";
+    }
+  }
+
+  #main{
+    @include position(relative);
+    z-index: 20;
+  }
+}

@@ -1,0 +1,41 @@
+ul.social{
+  padding: 0;
+  margin: 0;
+  width: auto;
+  li{
+    list-style-type: none;
+    overflow: hidden;
+    a{
+    text-indent: -1000%;
+    background-size: cover;
+    float: right;
+    display: block;
+    height: 100%;
+    width: 100%;
+    }
+    &.vimeo a{
+      background-image: url(https://raw.github.com/danleech/simple-icons/master/icons/vimeo/vimeo-1024.png);
+    }
+    &.facebook a{
+      background-image: url(https://raw.github.com/danleech/simple-icons/master/icons/facebook/facebook-1024.png);
+    }
+    &.twitter a{
+      background-image: url(https://raw.github.com/danleech/simple-icons/master/icons/twitter/twitter-1024.png);
+    }
+    &.youtube a{
+      background-image: url(https://raw.github.com/danleech/simple-icons/master/icons/youtube/youtube-1024.png);
+    }
+    &.googleplus a{
+      background-image: url(https://raw.github.com/danleech/simple-icons/master/icons/googleplus/googleplus-1024.png);
+    }
+    &.instagram a{
+      background-image: url(https://raw.github.com/danleech/simple-icons/master/icons/instagram/instagram-1024.png);
+    }
+    &.github a{
+      background-image: url(https://raw.github.com/danleech/simple-icons/master/icons/github/github-1024.png);
+    }
+    &.tumblr a{
+      background-image: url(https://raw.github.com/danleech/simple-icons/master/icons/tumblr/tumblr-1024.png);
+    }
+  }
+}
